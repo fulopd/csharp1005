@@ -18,21 +18,21 @@ namespace StringMuveletek
 
         public string atalakitottSzoveg() {
 
-            string atalakitottSzoveg;
-            StringBuilder sb = new StringBuilder();
+            string atalakitottSzoveg = null;
+            
 
             for (int i = 0; i < inputString.Length; i++)
             {
-                if (char.IsDigit(inputString[i]))
-                {
-                    sb.Append('?');
+                if (char.IsDigit(inputString[i]))                {
+                    
+                    atalakitottSzoveg += '*';
                 }
                 else
                 {
-                    sb.Append('*');
+                    atalakitottSzoveg += '?';
                 }
             }
-            atalakitottSzoveg = sb.ToString();
+           
             return atalakitottSzoveg;
         }
     }
