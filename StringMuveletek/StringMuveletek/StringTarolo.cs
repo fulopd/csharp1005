@@ -23,8 +23,8 @@ namespace StringMuveletek
 
             for (int i = 0; i < inputString.Length; i++)
             {
-                if (char.IsDigit(inputString[i]))                {
-                    
+                if (char.IsDigit(inputString[i]))
+                {                    
                     atalakitottSzoveg += '*';
                 }
                 else
