@@ -120,13 +120,15 @@ namespace Nobel
 
             Console.WriteLine("\n8. feladat:");
             StreamWriter sw = new StreamWriter("orvosi.txt", false);
-            var orvosi = NobelDijTarolo.OrderBy(x => x.Evszam);
+            var orvosi = NobelDijTarolo
+                .Where(x => x.Tipus.Equals("orvosi"))
+                .OrderBy(x => x.Evszam);
             foreach (NobelDij item in orvosi)
             {
-                if (item.Tipus == "orvosi")
-                {
+                //if (item.Tipus == "orvosi")
+                //{
                     sw.WriteLine(item.Evszam+ ": "+ item.TeljesNev + " " + item.Tipus);
-                }
+                //}
             }
             Console.WriteLine("File létrejött");
 
