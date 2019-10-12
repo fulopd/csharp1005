@@ -112,31 +112,28 @@ namespace Nobel
 
             foreach (var item in tipusLINQLista)
             {
-                Console.WriteLine(item.Tipus +""+ item.Mennyiseg);
+                Console.WriteLine(item.Tipus +": "+ item.Mennyiseg);
             }
+
 
 
 
             Console.WriteLine("\n8. feladat:");
-
             StreamWriter sw = new StreamWriter("orvosi.txt", false);
-
-            foreach (NobelDij item in NobelDijTarolo)
+            var orvosi = NobelDijTarolo.OrderBy(x => x.Evszam);
+            foreach (NobelDij item in orvosi)
             {
                 if (item.Tipus == "orvosi")
                 {
-                    sw.WriteLine(item.TeljesNev + " " + item.Tipus);
+                    sw.WriteLine(item.Evszam+ ": "+ item.TeljesNev + " " + item.Tipus);
                 }
-
             }
-
-
             Console.WriteLine("File létrejött");
 
+
+
+
             Console.ReadKey();
-
-
-
 
         }
 
