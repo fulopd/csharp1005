@@ -49,11 +49,8 @@ namespace Nobel
                     if (item.Tipus == "béke")
                     {
                         Console.WriteLine(item.TeljesNev + " " + item.Evszam + " " + item.Tipus);
-                    }
-                    
-                }
-
-                
+                    }                    
+                }                
             }
 
 
@@ -61,14 +58,10 @@ namespace Nobel
             Console.WriteLine("\nCurie család:");
             foreach (NobelDij item in NobelDijTarolo)
             {
-                if (item.VezetekNev.Contains("Curie"))
-                {
+                if (item.VezetekNev.Contains("Curie")) {
                     
-                     Console.WriteLine(item.Evszam + ": " +item.TeljesNev);
-                    
-
+                     Console.WriteLine(item.Evszam + ": " +item.TeljesNev +" "+ item.Tipus);                   
                 }
-
 
             }
 
@@ -79,7 +72,6 @@ namespace Nobel
             foreach (NobelDij item in NobelDijTarolo)
             {
                 tipusok.Add(item.Tipus);
-
             }
             
             int[] darab = new int[tipusok.Count];
@@ -103,6 +95,24 @@ namespace Nobel
             {
                 Console.WriteLine(item + ": " + darab[counter1]);
                 counter1++;
+            }
+
+
+            Console.WriteLine("\nMásik megoldás 7. feladat\n");
+
+            //LINQ
+            var tipusLINQLista = NobelDijTarolo
+                .GroupBy(x => x.Tipus)
+                .Select(g =>
+                    new {
+                        Tipus = g.Key,
+                        Mennyiseg = g.Count()
+                        }
+                    );
+
+            foreach (var item in tipusLINQLista)
+            {
+                Console.WriteLine(item.Tipus +""+ item.Mennyiseg);
             }
 
 
